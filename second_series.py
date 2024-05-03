@@ -6,7 +6,6 @@ class CurrentDensityField:
     """
     A class to represent and visualize a 3D current density field based on given parameters and equations for current density.
     """
-
     def create_grid(self):
         """Creates a 3D grid based on initialized parameters."""
         x = np.linspace(*self.x_range, self.x_points)
@@ -51,23 +50,46 @@ class CurrentDensityField:
     def evaluate_currents(self):
         """Evaluate the current density field at all points in the grid."""
         self.J = np.zeros((self.x_points, self.y_points, self.z_points, 3))
+        self.K = np.zeros((self.x_points, self.y_points, self.z_points, 3))
         for i in range(self.x_points):
             for j in range(self.y_points):
                 for k in range(self.z_points):
-                    self.J[i, j, k] = self.current_density(self.X[i, j, k], self.Y[i, j, k])
+                    if self.Y[i, j, k] == 0 and self.X[i, j, k] > 0:
+                        self.K[i, j, k] = self.current_density(self.X[i, j, k], self.Y[i, j, k])
+                    else:
+                        self.J[i, j, k] = self.current_density(self.X[i, j, k], self.Y[i, j, k])
 
-    def visualize(self):
-        """Visualize the current density field."""
+    def visualize_current_density(self, ax, component_indices, color):
+        """Visualize the specified components of the current density."""
+        for i in range(self.x_points):
+            for j in range(self.y_points):
+                for k in range(self.z_points):
+                    if self.Y[i, j, k] > 0 or self.X[i, j, k] <= 0:
+                        current = self.J[i, j, k]
+                        ax.quiver(self.X[i, j, k], self.Y[i, j, k], self.Z[i, j, k],
+                                  current[0] if component_indices[0] else 0,
+                                  current[1] if component_indices[1] else 0,
+                                  current[2] if component_indices[2] else 0,
+                                  length=0.3, color=color, alpha=0.6)
+
+    def visualize_surface_current(self, ax, color='red'):
+        """Visualize the surface current."""
+        for i in range(self.x_points):
+            for j in range(self.y_points):
+                for k in range(self.z_points):
+                    if self.Y[i, j, k] == 0 and self.X[i, j, k] > 0:
+                        current = self.K[i, j, k]
+                        ax.quiver(self.X[i, j, k], self.Y[i, j, k], self.Z[i, j, k],
+                                  current[0], current[1], current[2],
+                                  length=0.3, color=color, alpha=0.6)
+
+    def visualize(self, show_jx=True, show_jy=True, show_jz=True, elevation=-90 , azimuth=90):
+        """Visualize the current density field with options to show individual components."""
         fig = plt.figure(figsize=(15, 10))
         ax = fig.add_subplot(111, projection='3d')
-        for i in range(self.x_points):
-            for j in range(self.y_points):
-                for k in range(self.z_points):
-                    if self.Y[i, j, k] == 0:
-                        color = 'red'
-                    else:
-                        color = 'blue'
-                    ax.quiver(self.X[i, j, k], self.Y[i, j, k], self.Z[i, j, k], self.J[i, j, k, 0], self.J[i, j, k, 1], self.J[i, j, k, 2], length=0.3, color=color)
+        self.visualize_surface_current(ax)
+        self.visualize_current_density(ax, [show_jx, show_jy, show_jz], 'blue')
+        ax.view_init(elev=elevation, azim=azimuth)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
@@ -75,7 +97,12 @@ class CurrentDensityField:
 
 if __name__ == "__main__":
     field = CurrentDensityField(A=1.0, b=0.3, h=2.0,
-                            x_range=(-1, 4), y_range=(-1, 4), z_range=(-2.5, 2.5),
-                            x_points=11, y_points=11, z_points=11)
+                                x_range=(-1, 4), y_range=(-1, 4), z_range=(-2.5, 2.5),
+                                x_points=11, y_points=11, z_points=11)
     field.evaluate_currents()
-    field.visualize()
+    '''
+    For the YX plane: elevation=90, azimuth=-90
+    For the ZY plane: elevation=0, azimuth=0
+    For the ZX plane: elevation=0, azimuth=90
+    '''
+    field.visualize(show_jx=True, show_jy=True, show_jz=True, elevation=-90, azimuth=90) 
