@@ -29,40 +29,53 @@ class CurrentDensityField:
         self.z_points = z_points
         self.create_grid()
 
-    def spatial_current_density(self, x, y):
+    def current_density(self, x, y):
         """
-        Calculate the current density vector J at a point (x, y, z).
+        Calculate the current density vectors J and K at all the points of the grid.
         J is defined within the volume confined by y=0 and y=h for x>0.
+        K is defined within the surface y=0 for x>0.
         """
-        if 0 <= y <= self.h and x > 0:
+        if 0 < y <= self.h and x > 0:
             j_x = self.A * (1 - np.exp(-self.b * x))
-            j_y = self.A*self.b * (self.h - y) * np.exp(-self.b * x)
-            return np.array([j_x, j_y, 0])
+            j_y = self.A * self.b * (self.h - y) * np.exp(-self.b * x)
+            j_z = 0
+            return [j_x, j_y, j_z]
+        elif y == 0 and x > 0:
+            k_x = -self.A * self.h * (1 - np.exp(-self.b * x))
+            k_y = 0
+            k_z = 0
+            return [k_x, k_y, k_z]
         else:
-            return np.array([0, 0, 0])
-    
+            return [0, 0, 0]
+        
     def evaluate_currents(self):
         """Evaluate the current density field at all points in the grid."""
         self.J = np.zeros((self.x_points, self.y_points, self.z_points, 3))
         for i in range(self.x_points):
             for j in range(self.y_points):
                 for k in range(self.z_points):
-                    self.J[i, j, k] = self.spatial_current_density(self.X[i, j, k], self.Y[i, j, k])
+                    self.J[i, j, k] = self.current_density(self.X[i, j, k], self.Y[i, j, k])
 
     def visualize(self):
         """Visualize the current density field."""
-        fig = plt.figure()
+        fig = plt.figure(figsize=(15, 10))
         ax = fig.add_subplot(111, projection='3d')
-        ax.quiver(self.X, self.Y, self.Z, self.J[..., 0], self.J[..., 1], self.J[..., 2], length=0.3)
+        for i in range(self.x_points):
+            for j in range(self.y_points):
+                for k in range(self.z_points):
+                    if self.Y[i, j, k] == 0:
+                        color = 'red'
+                    else:
+                        color = 'blue'
+                    ax.quiver(self.X[i, j, k], self.Y[i, j, k], self.Z[i, j, k], self.J[i, j, k, 0], self.J[i, j, k, 1], self.J[i, j, k, 2], length=0.3, color=color)
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         plt.show()
 
-# Example of using the class
 if __name__ == "__main__":
     field = CurrentDensityField(A=1.0, b=0.3, h=2.0,
-                            x_range=(0, 3), y_range=(-3, 3), z_range=(-3, 3),
-                            x_points=15, y_points=15, z_points=15)
+                            x_range=(-1, 4), y_range=(-1, 4), z_range=(-2.5, 2.5),
+                            x_points=11, y_points=11, z_points=11)
     field.evaluate_currents()
     field.visualize()
