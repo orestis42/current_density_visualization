@@ -42,9 +42,9 @@ def generate_cone_plot(data, color, name):
 def visualize_current_densities():
     """Generate a visualization for the spatial and surface current densities."""
     # Grid resolution and limits
-    x_values = np.linspace(0.1, 5, 10)
-    y_values = np.linspace(0, h, 5)
-    z_values = [-1, 0, 1]
+    x_values = np.linspace(0, 10, 10)
+    y_values = np.linspace(0, h, 10)
+    z_values = np.linspace(-3, 3, 7)
 
     # Collect all current vectors
     spatial_data = [[], [], [], [], [], []]  # x, y, z, u, v, w
