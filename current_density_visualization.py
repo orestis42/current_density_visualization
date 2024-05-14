@@ -3,79 +3,79 @@ import plotly.graph_objects as go
 
 # Constants
 A = 1
-b = 0.3
-h = 1
+B = 0.3
+H = 1
 
 def compute_spatial_current_density(x, y):
-    """Calculate the spatial current density at a given (x, y)."""
-    if 0 < y <= h and x > 0:
-        j_x = A * (1 - np.exp(-b * x))
-        j_y = A * b * (h - y) * np.exp(-b * x)
-        j_z = 0
-        return np.array([j_x, j_y, j_z])
-    else:
-        return np.zeros(3)
+    """
+    Calculate the spatial current density at a given (x, y).
+    Vectorized to handle arrays efficiently.
+    """
+    mask = (0 < y) & (y <= H) & (x > 0)
+    j_x = A * (1 - np.exp(-B * x)) * mask
+    j_y = A * B * (H - y) * np.exp(-B * x) * mask
+    j_z = np.zeros_like(j_x)
+    return np.stack([j_x, j_y, j_z], axis=-1)
 
+def compute_surface_current_density(x):
+    """
+    Calculate the surface current density at a given x.
+    Vectorized to handle arrays efficiently.
+    """
+    k_x = np.zeros_like(x)
+    mask = x > 0
+    k_x[mask] = -A * H * (1 - np.exp(-B * x[mask]))
+    k_y = np.zeros_like(k_x)
+    k_z = np.zeros_like(k_x)
+    return np.stack([k_x, k_y, k_z], axis=-1)
 
-def compute_surface_current_density(x, y):
-    """Calculate the surface current density at a given (x, y)."""
-    if y == 0 and x > 0:
-        k_x = -A * h * (1 - np.exp(-b * x))
-        k_y = 0
-        k_z = 0
-        return np.array([k_x, k_y, k_z])
-    else:
-        return np.zeros(3)
-
-
-def generate_cone_plot(data, color, name):
-    """Generate a plotly cone plot for a set of vector data."""
-    x, y, z, u, v, w = data
-    return go.Cone(
-        x=x, y=y, z=z, u=u, v=v, w=w,
-        colorscale=color,
-        showscale=False,
-        name=name
-    )
-
+def generate_cone_plot(x, y, z, u, v, w, color, name):
+    """
+    Generate a Plotly cone plot for a set of vector data.
+    Declarative approach to visualize vector fields.
+    """
+    return go.Cone(x=x, y=y, z=z, u=u, v=v, w=w, colorscale=color, showscale=False, name=name)
 
 def visualize_current_densities():
-    """Generate a visualization for the spatial and surface current densities."""
+    """
+    Generate a visualization for the spatial and surface current densities.
+    Uses vectorized computations and Plotly for professional visualization.
+    """
     # Grid resolution and limits
-    x_values = np.linspace(0, 10, 10)
-    y_values = np.linspace(0, h, 10)
+    x_values = np.linspace(0.1, 10, 10)
+    y_values = np.linspace(0, H, 10)
     z_values = np.linspace(-3, 3, 7)
 
-    # Collect all current vectors
-    spatial_data = [[], [], [], [], [], []]  # x, y, z, u, v, w
-    surface_data = [[], [], [], [], [], []]  # x, y, z, u, v, w
+    # Create meshgrid for spatial current density
+    X, Y, Z = np.meshgrid(x_values, y_values, z_values)
+    J = compute_spatial_current_density(X, Y)
+    
+    spatial_data = [X.ravel(), Y.ravel(), Z.ravel(),
+                    J[..., 0].ravel(), J[..., 1].ravel(), J[..., 2].ravel()]
 
-    # Compute spatial current density vectors for all z-values
-    for x in x_values:
-        for y in y_values:
-            j_vec = compute_spatial_current_density(x, y)
-            for z in z_values:
-                spatial_data[0].append(x)
-                spatial_data[1].append(y)
-                spatial_data[2].append(z)
-                spatial_data[3].append(j_vec[0])
-                spatial_data[4].append(j_vec[1])
-                spatial_data[5].append(j_vec[2])
+    # Create meshgrid for surface current density
+    X_surface, Z_surface = np.meshgrid(x_values, z_values)
+    Y_surface = np.zeros_like(X_surface)
+    K = compute_surface_current_density(x_values)
 
-    # Compute surface current density vectors for all z-values
-    for x in x_values:
-        k_vec = compute_surface_current_density(x, 0)
-        for z in z_values:
-            surface_data[0].append(x)
-            surface_data[1].append(0)
-            surface_data[2].append(z)
-            surface_data[3].append(k_vec[0])
-            surface_data[4].append(k_vec[1])
-            surface_data[5].append(k_vec[2])
+    # Properly repeat K vectors for each Z_surface value without changing K
+    K_repeated = np.repeat(K, Z_surface.shape[0], axis=0).reshape(K.shape[0], Z_surface.shape[0], 3)
+    
+    surface_data = [X_surface.ravel(), Y_surface.ravel(), Z_surface.ravel(),
+                    np.tile(K[..., 0], Z_surface.shape[0]),
+                    np.tile(K[..., 1], Z_surface.shape[0]),
+                    np.tile(K[..., 2], Z_surface.shape[0])]
 
-    # Create cone plots
-    spatial_cones = generate_cone_plot(spatial_data, "Blues", "Spatial Current Density")
-    surface_cones = generate_cone_plot(surface_data, "Reds", "Surface Current Density")
+    # Generate cone plots
+    spatial_cones = generate_cone_plot(*spatial_data, "Blues", "Spatial Current Density")
+    surface_cones = generate_cone_plot(*surface_data, "Reds", "Surface Current Density")
+
+    # Set default camera orientation
+    camera = dict(
+        up=dict(x=0, y=0, z=1),
+        center=dict(x=0, y=0, z=0),
+        eye=dict(x=0, y=1, z=1)
+    )
 
     # Combine plots in a single figure
     fig = go.Figure(data=[spatial_cones, surface_cones])
@@ -84,7 +84,8 @@ def visualize_current_densities():
             xaxis_title='X',
             yaxis_title='Y',
             zaxis_title='Z',
-            aspectmode='cube'
+            aspectmode='cube',
+            camera=camera
         ),
         title="Spatial and Surface Current Densities"
     )
