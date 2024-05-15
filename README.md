@@ -17,11 +17,16 @@ To install the necessary dependencies, use [`pipenv`](https://github.com/pypa/pi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/current-density-visualization.git
+git clone https://github.com/orestis42/current_density_visualization.git
 
 # Navigate to the project directory
-cd current-density-visualization
+cd current_density_visualization
 
 # Install dependencies using pipenv
 pipenv install
+```
+##Usage
+
+```bash
+pipenv run python current_density_visualization.py
 ```
