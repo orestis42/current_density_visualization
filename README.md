@@ -1,32 +1,27 @@
-# Current Density Field Visualizer
+# Exercise in Current Density Visualization
 
 ## Overview
-This Python module provides a class `CurrentDensityField` which models and visualizes a 3D current density field. It is particularly useful for visualizing current densities within specific volumes and surfaces based on user-defined parameters.
+A 3D visualization of a uniform arrangement along the z-axis containing the following electric current distributions:
 
-## Features
-- Definition of current density in a volumetric space and on a surface.
-- Visualization of current density components using matplotlib and mpl_toolkits for 3D plotting.
-- Customizable grid and current density calculation based on input parameters.
+- In the region of space where $x > 0$ and $0 < y < h$, the spatial distribution with density:
+  $$\mathbf{J} = A \left[ \left( 1 - e^{-bx} \right) \hat{x} + b(h - y)e^{-bx}\right] \hat{y}$$
 
-## Requirements
-- numpy
-- matplotlib
-- mpl_toolkits.mplot3d
+- In the section of the plane $y = 0$ where $x > 0$, the surface distribution with density:
+  $$\mathbf{K} = -Ah \left( 1 - e^{-bx} \right) \hat{x}$$
 
-## Usage
-To use this module, instantiate the `CurrentDensityField` class with the required physical and grid parameters. Then, call the `evaluate_currents` method to calculate the current densities across the grid. Finally, use the `visualize` method to generate a 3D visualization of the current density vectors.
+where $A$, $b$, and $h$ are known positive constants. The entire space has magnetic permeability $\mu_0$, while the regions where $x < 0$, $y < 0$, or $y > h$ are non-conductive.
 
-### Example
-```python
-from current_density_field import CurrentDensityField
+## Installation
 
-# Initialize the field with specific parameters
-field = CurrentDensityField(A=1.0, b=0.3, h=2.0,
-                            x_range=(-1, 4), y_range=(-1, 4), z_range=(-2.5, 2.5),
-                            x_points=11, y_points=11, z_points=11)
+To install the necessary dependencies, use [`pipenv`](https://github.com/pypa/pipenv?tab=readme-ov-file#installation). It is recommended to use a virtual environment to manage your dependencies.
 
-# Calculate current densities
-field.evaluate_currents()
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/current-density-visualization.git
 
-# Visualize the current density field
-field.visualize(show_jx=True, show_jy=True, show_jz=True, elevation=-90, azimuth=90)
+# Navigate to the project directory
+cd current-density-visualization
+
+# Install dependencies using pipenv
+pipenv install
+```
