@@ -78,13 +78,32 @@ def visualize_current_densities():
     fig = go.Figure(data=[spatial_cones, surface_cones])
     fig.update_layout(
         scene=dict(
-            xaxis_title='X',
-            yaxis_title='Y',
-            zaxis_title='Z',
+            xaxis=dict(
+                title='X',
+                zeroline=True,
+                zerolinecolor='red',
+                showline=True,
+                showgrid=True
+            ),
+            yaxis=dict(
+                title='Y',
+                zeroline=True,
+                zerolinecolor='green',
+                showline=True,
+                showgrid=True
+            ),
+            zaxis=dict(
+                title='Z',
+                zeroline=True,
+                zerolinecolor='blue',
+                showline=True,
+                showgrid=True
+            ),
             aspectmode='cube',
             camera=camera
         ),
-        title="Spatial and Surface Current Densities"
+        title="Spatial and Surface Current Densities",
+        template="plotly_dark"
     )
     fig.show()
 
