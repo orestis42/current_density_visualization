@@ -15,16 +15,22 @@ where $A$, $b$, and $h$ are known positive constants. The entire space has magne
 
 To install the necessary dependencies, use [`pipenv`](https://github.com/pypa/pipenv?tab=readme-ov-file#installation). It is recommended to use a virtual environment to manage your dependencies.
 
+Clone the repository.
+
 ```bash
-# Clone the repository
 git clone https://github.com/orestis42/current_density_visualization.git
+```
 
-# Navigate to the project directory
+Navigate to the project directory.
+```bash
 cd current_density_visualization
+```
 
-# Install dependencies using pipenv
+Install dependencies using pipenv.
+```bash
 pipenv install
 ```
+
 ## Usage
 
 ```bash
