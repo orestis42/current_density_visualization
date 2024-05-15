@@ -57,9 +57,6 @@ def visualize_current_densities():
     X_surface, Z_surface = np.meshgrid(x_values, z_values)
     Y_surface = np.zeros_like(X_surface)
     K = compute_surface_current_density(x_values)
-
-    # Properly repeat K vectors for each Z_surface value without changing K
-    K_repeated = np.repeat(K, Z_surface.shape[0], axis=0).reshape(K.shape[0], Z_surface.shape[0], 3)
     
     surface_data = [X_surface.ravel(), Y_surface.ravel(), Z_surface.ravel(),
                     np.tile(K[..., 0], Z_surface.shape[0]),
@@ -72,9 +69,9 @@ def visualize_current_densities():
 
     # Set default camera orientation
     camera = dict(
-        up=dict(x=0, y=0, z=1),
+        up=dict(x=0, y=1, z=0),
         center=dict(x=0, y=0, z=0),
-        eye=dict(x=0, y=1, z=1)
+        eye=dict(x=0, y=0, z=2)
     )
 
     # Combine plots in a single figure
