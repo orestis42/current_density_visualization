@@ -4,7 +4,7 @@
 A 3D visualization of a uniform arrangement along the z-axis containing the following electric current distributions:
 
 - In the region of space where $x > 0$ and $0 < y < h$, the spatial distribution with density:
-  $$\mathbf{J} = A \left[ \left( 1 - e^{-bx} \right) \hat{x} + b(h - y)e^{-bx}\right] \hat{y}$$
+  $$\mathbf{J} = A \left[ \left( 1 - e^{-bx} \right) \hat{x} + b(h - y)e^{-bx} \hat{y} \right]$$
 
 - In the section of the plane $y = 0$ where $x > 0$, the surface distribution with density:
   $$\mathbf{K} = -Ah \left( 1 - e^{-bx} \right) \hat{x}$$
