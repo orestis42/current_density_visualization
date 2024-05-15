@@ -25,7 +25,7 @@ cd current_density_visualization
 # Install dependencies using pipenv
 pipenv install
 ```
-##Usage
+## Usage
 
 ```bash
 pipenv run python current_density_visualization.py
