@@ -119,10 +119,9 @@ def create_plot(spatial_data, surface_data):
     fig.show()
 
 def visualize_current_densities():
-    """
-    Generate a visualization for the spatial and surface current densities.
-    Uses vectorized computations and Plotly for professional visualization.
-    """
+    '''
+    Main function of the scrip.
+    '''
     x_values = np.linspace(0.1, 10, 10)
     y_values = np.linspace(0, H, 10)
     z_values = np.linspace(-3, 3, 7)
