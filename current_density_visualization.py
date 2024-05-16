@@ -36,45 +36,56 @@ def generate_cone_plot(x, y, z, u, v, w, color, name):
     """
     return go.Cone(x=x, y=y, z=z, u=u, v=v, w=w, colorscale=color, showscale=False, name=name)
 
-def visualize_current_densities():
+def create_meshgrid(x_values, y_values=None, z_values=None):
     """
-    Generate a visualization for the spatial and surface current densities.
-    Uses vectorized computations and Plotly for professional visualization.
+    Create a meshgrid for given x, y, and z values.
     """
-    # Grid resolution and limits
-    x_values = np.linspace(0.1, 10, 10)
-    y_values = np.linspace(0, H, 10)
-    z_values = np.linspace(-3, 3, 7)
+    if y_values is not None and z_values is not None:
+        return np.meshgrid(x_values, y_values, z_values)
+    elif z_values is not None:
+        return np.meshgrid(x_values, z_values)
+    else:
+        return np.meshgrid(x_values)
 
-    # Create meshgrid for spatial current density
-    X, Y, Z = np.meshgrid(x_values, y_values, z_values)
+def prepare_spatial_data(x_values, y_values, z_values):
+    """
+    Prepare data for spatial current density plot.
+    """
+    X, Y, Z = create_meshgrid(x_values, y_values, z_values)
     J = compute_spatial_current_density(X, Y)
-    
-    spatial_data = [X.ravel(), Y.ravel(), Z.ravel(),
-                    J[..., 0].ravel(), J[..., 1].ravel(), J[..., 2].ravel()]
+    return [X.ravel(), Y.ravel(), Z.ravel(), J[..., 0].ravel(), J[..., 1].ravel(), J[..., 2].ravel()]
 
-    # Create meshgrid for surface current density
-    X_surface, Z_surface = np.meshgrid(x_values, z_values)
+def prepare_surface_data(x_values, z_values):
+    """
+    Prepare data for surface current density plot.
+    """
+    X_surface, Z_surface = create_meshgrid(x_values, z_values=z_values)
     Y_surface = np.zeros_like(X_surface)
     K = compute_surface_current_density(x_values)
-    
-    surface_data = [X_surface.ravel(), Y_surface.ravel(), Z_surface.ravel(),
-                    np.tile(K[..., 0], Z_surface.shape[0]),
-                    np.tile(K[..., 1], Z_surface.shape[0]),
-                    np.tile(K[..., 2], Z_surface.shape[0])]
+    return [X_surface.ravel(), Y_surface.ravel(), Z_surface.ravel(),
+            np.tile(K[..., 0], Z_surface.shape[0]),
+            np.tile(K[..., 1], Z_surface.shape[0]),
+            np.tile(K[..., 2], Z_surface.shape[0])]
 
-    # Generate cone plots
-    spatial_cones = generate_cone_plot(*spatial_data, "Blues", "Spatial Current Density")
-    surface_cones = generate_cone_plot(*surface_data, "Reds", "Surface Current Density")
-
-    # Set default camera orientation
-    camera = dict(
+def create_camera_orientation():
+    """
+    Create a default camera orientation for the 3D plot.
+    """
+    return dict(
         up=dict(x=0, y=1, z=0),
         center=dict(x=0, y=0, z=0),
         eye=dict(x=0, y=0, z=2)
     )
 
-    # Combine plots in a single figure
+def create_plot(spatial_data, surface_data):
+    """
+    Create a Plotly plot combining spatial and surface current densities.
+    """
+    spatial_cones = generate_cone_plot(*spatial_data, "Blues", "Spatial Current Density")
+    surface_cones = generate_cone_plot(*surface_data, "Reds", "Surface Current Density")
+
+    camera = create_camera_orientation()
+
     fig = go.Figure(data=[spatial_cones, surface_cones])
     fig.update_layout(
         scene=dict(
@@ -107,6 +118,19 @@ def visualize_current_densities():
     )
     fig.show()
 
+def visualize_current_densities():
+    """
+    Generate a visualization for the spatial and surface current densities.
+    Uses vectorized computations and Plotly for professional visualization.
+    """
+    x_values = np.linspace(0.1, 10, 10)
+    y_values = np.linspace(0, H, 10)
+    z_values = np.linspace(-3, 3, 7)
+
+    spatial_data = prepare_spatial_data(x_values, y_values, z_values)
+    surface_data = prepare_surface_data(x_values, z_values)
+
+    create_plot(spatial_data, surface_data)
 
 if __name__ == "__main__":
     visualize_current_densities()
