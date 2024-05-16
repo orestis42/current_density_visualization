@@ -1,6 +1,6 @@
 # Exercise in Current Density Visualization
 
-![Figure](https://github.com/orestis42/current_density_visualization/assets/37120208/91d1c49d-150e-4c8e-b4c6-6962375fb49f
+![Figure](https://github.com/orestis42/current_density_visualization/assets/37120208/91d1c49d-150e-4c8e-b4c6-6962375fb49f)
 
 ## Overview
 A 3D visualization of a uniform arrangement along the z-axis containing the following electric current distributions:
