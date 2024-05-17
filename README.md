@@ -20,7 +20,7 @@ To install the necessary dependencies, use [`pipenv`](https://github.com/pypa/pi
 Clone the repository.
 
 ```bash
-git clone https://github.com/orestis42/current_density_visualization.git
+git clone git@github.com:orestis42/current_density_visualization.git
 ```
 
 Navigate to the project directory.
