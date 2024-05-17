@@ -1,5 +1,5 @@
-import numpy as np
 cimport numpy as np
+import numpy as np
 
 def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):
     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)

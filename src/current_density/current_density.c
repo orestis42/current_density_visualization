@@ -3,22 +3,13 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "depends": [
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include/numpy/arrayobject.h",
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include/numpy/arrayscalars.h",
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include/numpy/ndarrayobject.h",
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include/numpy/ndarraytypes.h",
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include/numpy/ufuncobject.h"
-        ],
-        "include_dirs": [
-            "/home/orestis/.local/share/virtualenvs/current_density_visualization-45NYEc7J/lib/python3.12/site-packages/numpy/core/include"
-        ],
-        "name": "current_density",
+        "depends": [],
+        "name": "current_density.current_density",
         "sources": [
-            "current_density.pyx"
+            "src/current_density/current_density.pyx"
         ]
     },
-    "module_name": "current_density"
+    "module_name": "current_density.current_density"
 }
 END: Cython Metadata */
 
@@ -1238,8 +1229,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__current_density
-#define __PYX_HAVE_API__current_density
+#define __PYX_HAVE__current_density__current_density
+#define __PYX_HAVE_API__current_density__current_density
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -1522,7 +1513,7 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "__init__.cython-30.pxd",
-  "current_density.pyx",
+  "src/current_density/current_density.pyx",
   "type.pxd",
 };
 /* #### Code section: utility_code_proto_before_types ### */
@@ -2623,16 +2614,16 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
 
 /* Module declarations from "numpy" */
 
-/* Module declarations from "current_density" */
+/* Module declarations from "current_density.current_density" */
 /* #### Code section: typeinfo ### */
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_char = { "char", NULL, sizeof(char), { 0 }, 0, 'H', __PYX_IS_UNSIGNED(char), 0 };
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "current_density"
-extern int __pyx_module_is_main_current_density;
-int __pyx_module_is_main_current_density = 0;
+#define __Pyx_MODULE_NAME "current_density.current_density"
+extern int __pyx_module_is_main_current_density__current_density;
+int __pyx_module_is_main_current_density__current_density = 0;
 
-/* Implementation of "current_density" */
+/* Implementation of "current_density.current_density" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_ImportError;
 /* #### Code section: string_decls ### */
@@ -2667,17 +2658,17 @@ static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
-static const char __pyx_k_current_density[] = "current_density";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_current_density_pyx[] = "current_density.pyx";
 static const char __pyx_k_compute_spatial_current_density[] = "compute_spatial_current_density";
 static const char __pyx_k_compute_surface_current_density[] = "compute_surface_current_density";
+static const char __pyx_k_current_density_current_density[] = "current_density.current_density";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
+static const char __pyx_k_src_current_density_current_dens[] = "src/current_density/current_density.pyx";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, PyArrayObject *__pyx_v_y, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H); /* proto */
-static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H); /* proto */
+static PyObject *__pyx_pf_15current_density_15current_density_compute_spatial_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, PyArrayObject *__pyx_v_y, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H); /* proto */
+static PyObject *__pyx_pf_15current_density_15current_density_2compute_surface_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2753,8 +2744,7 @@ typedef struct {
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_compute_spatial_current_density;
   PyObject *__pyx_n_s_compute_surface_current_density;
-  PyObject *__pyx_n_s_current_density;
-  PyObject *__pyx_kp_s_current_density_pyx;
+  PyObject *__pyx_n_s_current_density_current_density;
   PyObject *__pyx_n_s_dtype;
   PyObject *__pyx_n_s_exp;
   PyObject *__pyx_n_s_float64;
@@ -2775,6 +2765,7 @@ typedef struct {
   PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
   PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
   PyObject *__pyx_n_s_spec;
+  PyObject *__pyx_kp_s_src_current_density_current_dens;
   PyObject *__pyx_n_s_stack;
   PyObject *__pyx_n_s_test;
   PyObject *__pyx_n_s_x;
@@ -2859,8 +2850,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_compute_spatial_current_density);
   Py_CLEAR(clear_module_state->__pyx_n_s_compute_surface_current_density);
-  Py_CLEAR(clear_module_state->__pyx_n_s_current_density);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_current_density_pyx);
+  Py_CLEAR(clear_module_state->__pyx_n_s_current_density_current_density);
   Py_CLEAR(clear_module_state->__pyx_n_s_dtype);
   Py_CLEAR(clear_module_state->__pyx_n_s_exp);
   Py_CLEAR(clear_module_state->__pyx_n_s_float64);
@@ -2881,6 +2871,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s_numpy_core_multiarray_failed_to);
   Py_CLEAR(clear_module_state->__pyx_kp_s_numpy_core_umath_failed_to_impor);
   Py_CLEAR(clear_module_state->__pyx_n_s_spec);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_src_current_density_current_dens);
   Py_CLEAR(clear_module_state->__pyx_n_s_stack);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
   Py_CLEAR(clear_module_state->__pyx_n_s_x);
@@ -2943,8 +2934,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_compute_spatial_current_density);
   Py_VISIT(traverse_module_state->__pyx_n_s_compute_surface_current_density);
-  Py_VISIT(traverse_module_state->__pyx_n_s_current_density);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_current_density_pyx);
+  Py_VISIT(traverse_module_state->__pyx_n_s_current_density_current_density);
   Py_VISIT(traverse_module_state->__pyx_n_s_dtype);
   Py_VISIT(traverse_module_state->__pyx_n_s_exp);
   Py_VISIT(traverse_module_state->__pyx_n_s_float64);
@@ -2965,6 +2955,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s_numpy_core_multiarray_failed_to);
   Py_VISIT(traverse_module_state->__pyx_kp_s_numpy_core_umath_failed_to_impor);
   Py_VISIT(traverse_module_state->__pyx_n_s_spec);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_src_current_density_current_dens);
   Py_VISIT(traverse_module_state->__pyx_n_s_stack);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
   Py_VISIT(traverse_module_state->__pyx_n_s_x);
@@ -3055,8 +3046,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_compute_spatial_current_density __pyx_mstate_global->__pyx_n_s_compute_spatial_current_density
 #define __pyx_n_s_compute_surface_current_density __pyx_mstate_global->__pyx_n_s_compute_surface_current_density
-#define __pyx_n_s_current_density __pyx_mstate_global->__pyx_n_s_current_density
-#define __pyx_kp_s_current_density_pyx __pyx_mstate_global->__pyx_kp_s_current_density_pyx
+#define __pyx_n_s_current_density_current_density __pyx_mstate_global->__pyx_n_s_current_density_current_density
 #define __pyx_n_s_dtype __pyx_mstate_global->__pyx_n_s_dtype
 #define __pyx_n_s_exp __pyx_mstate_global->__pyx_n_s_exp
 #define __pyx_n_s_float64 __pyx_mstate_global->__pyx_n_s_float64
@@ -3077,6 +3067,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s_numpy_core_multiarray_failed_to __pyx_mstate_global->__pyx_kp_s_numpy_core_multiarray_failed_to
 #define __pyx_kp_s_numpy_core_umath_failed_to_impor __pyx_mstate_global->__pyx_kp_s_numpy_core_umath_failed_to_impor
 #define __pyx_n_s_spec __pyx_mstate_global->__pyx_n_s_spec
+#define __pyx_kp_s_src_current_density_current_dens __pyx_mstate_global->__pyx_kp_s_src_current_density_current_dens
 #define __pyx_n_s_stack __pyx_mstate_global->__pyx_n_s_stack
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
 #define __pyx_n_s_x __pyx_mstate_global->__pyx_n_s_x
@@ -4355,8 +4346,8 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   return __pyx_r;
 }
 
-/* "current_density.pyx":4
- * cimport numpy as np
+/* "current_density/current_density.pyx":4
+ * import numpy as np
  * 
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
@@ -4364,15 +4355,15 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_15current_density_1compute_spatial_current_density(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15current_density_15current_density_1compute_spatial_current_density(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_15current_density_1compute_spatial_current_density = {"compute_spatial_current_density", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15current_density_1compute_spatial_current_density, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_15current_density_1compute_spatial_current_density(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15current_density_15current_density_1compute_spatial_current_density = {"compute_spatial_current_density", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15current_density_15current_density_1compute_spatial_current_density, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15current_density_15current_density_1compute_spatial_current_density(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4502,13 +4493,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("current_density.compute_spatial_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("current_density.current_density.compute_spatial_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(1, 4, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y), __pyx_ptype_5numpy_ndarray, 1, "y", 0))) __PYX_ERR(1, 4, __pyx_L1_error)
-  __pyx_r = __pyx_pf_15current_density_compute_spatial_current_density(__pyx_self, __pyx_v_x, __pyx_v_y, __pyx_v_A, __pyx_v_B, __pyx_v_H);
+  __pyx_r = __pyx_pf_15current_density_15current_density_compute_spatial_current_density(__pyx_self, __pyx_v_x, __pyx_v_y, __pyx_v_A, __pyx_v_B, __pyx_v_H);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4525,7 +4516,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, PyArrayObject *__pyx_v_y, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H) {
+static PyObject *__pyx_pf_15current_density_15current_density_compute_spatial_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, PyArrayObject *__pyx_v_y, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H) {
   PyArrayObject *__pyx_v_j_x = 0;
   PyArrayObject *__pyx_v_j_y = 0;
   PyArrayObject *__pyx_v_j_z = 0;
@@ -4594,7 +4585,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   }
   __pyx_pybuffernd_y.diminfo[0].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_y.diminfo[0].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_y.diminfo[1].strides = __pyx_pybuffernd_y.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_y.diminfo[1].shape = __pyx_pybuffernd_y.rcbuffer->pybuffer.shape[1];
 
-  /* "current_density.pyx":5
+  /* "current_density/current_density.pyx":5
  * 
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4639,7 +4630,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   __pyx_v_j_x = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "current_density.pyx":6
+  /* "current_density/current_density.pyx":6
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=2] j_y = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4684,7 +4675,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   __pyx_v_j_y = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "current_density.pyx":7
+  /* "current_density/current_density.pyx":7
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=2] j_y = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=2] j_z = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4729,7 +4720,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   __pyx_v_j_z = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "current_density.pyx":8
+  /* "current_density/current_density.pyx":8
  *     cdef np.ndarray[double, ndim=2] j_y = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=2] j_z = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[char, ndim=2] mask = (0 < y) & (y <= H) & (x > 0)             # <<<<<<<<<<<<<<
@@ -4764,7 +4755,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   __pyx_v_mask = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "current_density.pyx":10
+  /* "current_density/current_density.pyx":10
  *     cdef np.ndarray[char, ndim=2] mask = (0 < y) & (y <= H) & (x > 0)
  * 
  *     j_x[mask] = A * (1 - np.exp(-B * x[mask]))             # <<<<<<<<<<<<<<
@@ -4819,7 +4810,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   if (unlikely((PyObject_SetItem(((PyObject *)__pyx_v_j_x), ((PyObject *)__pyx_v_mask), __pyx_t_4) < 0))) __PYX_ERR(1, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "current_density.pyx":11
+  /* "current_density/current_density.pyx":11
  * 
  *     j_x[mask] = A * (1 - np.exp(-B * x[mask]))
  *     j_y[mask] = A * B * (H - y[mask]) * np.exp(-B * x[mask])             # <<<<<<<<<<<<<<
@@ -4883,7 +4874,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   if (unlikely((PyObject_SetItem(((PyObject *)__pyx_v_j_y), ((PyObject *)__pyx_v_mask), __pyx_t_1) < 0))) __PYX_ERR(1, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "current_density.pyx":13
+  /* "current_density/current_density.pyx":13
  *     j_y[mask] = A * B * (H - y[mask]) * np.exp(-B * x[mask])
  * 
  *     return np.stack([j_x, j_y, j_z], axis=-1)             # <<<<<<<<<<<<<<
@@ -4924,8 +4915,8 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "current_density.pyx":4
- * cimport numpy as np
+  /* "current_density/current_density.pyx":4
+ * import numpy as np
  * 
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
@@ -4951,7 +4942,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_y.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("current_density.compute_spatial_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("current_density.current_density.compute_spatial_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4971,7 +4962,7 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
   return __pyx_r;
 }
 
-/* "current_density.pyx":15
+/* "current_density/current_density.pyx":15
  *     return np.stack([j_x, j_y, j_z], axis=-1)
  * 
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):             # <<<<<<<<<<<<<<
@@ -4980,15 +4971,15 @@ static PyObject *__pyx_pf_15current_density_compute_spatial_current_density(CYTH
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_15current_density_3compute_surface_current_density(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15current_density_15current_density_3compute_surface_current_density(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_15current_density_3compute_surface_current_density = {"compute_surface_current_density", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15current_density_3compute_surface_current_density, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_15current_density_3compute_surface_current_density(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15current_density_15current_density_3compute_surface_current_density = {"compute_surface_current_density", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15current_density_15current_density_3compute_surface_current_density, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15current_density_15current_density_3compute_surface_current_density(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5103,12 +5094,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("current_density.compute_surface_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("current_density.current_density.compute_surface_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(1, 15, __pyx_L1_error)
-  __pyx_r = __pyx_pf_15current_density_2compute_surface_current_density(__pyx_self, __pyx_v_x, __pyx_v_A, __pyx_v_B, __pyx_v_H);
+  __pyx_r = __pyx_pf_15current_density_15current_density_2compute_surface_current_density(__pyx_self, __pyx_v_x, __pyx_v_A, __pyx_v_B, __pyx_v_H);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5125,7 +5116,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H) {
+static PyObject *__pyx_pf_15current_density_15current_density_2compute_surface_current_density(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, double __pyx_v_A, double __pyx_v_B, double __pyx_v_H) {
   PyArrayObject *__pyx_v_k_x = 0;
   PyArrayObject *__pyx_v_k_y = 0;
   PyArrayObject *__pyx_v_k_z = 0;
@@ -5183,7 +5174,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0];
 
-  /* "current_density.pyx":16
+  /* "current_density/current_density.pyx":16
  * 
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):
  *     cdef np.ndarray[double, ndim=1] k_x = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -5228,7 +5219,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   __pyx_v_k_x = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "current_density.pyx":17
+  /* "current_density/current_density.pyx":17
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):
  *     cdef np.ndarray[double, ndim=1] k_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=1] k_y = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -5273,7 +5264,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   __pyx_v_k_y = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "current_density.pyx":18
+  /* "current_density/current_density.pyx":18
  *     cdef np.ndarray[double, ndim=1] k_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=1] k_y = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=1] k_z = np.zeros_like(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -5318,7 +5309,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   __pyx_v_k_z = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "current_density.pyx":19
+  /* "current_density/current_density.pyx":19
  *     cdef np.ndarray[double, ndim=1] k_y = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=1] k_z = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[char, ndim=1] mask = x > 0             # <<<<<<<<<<<<<<
@@ -5340,7 +5331,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   __pyx_v_mask = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "current_density.pyx":21
+  /* "current_density/current_density.pyx":21
  *     cdef np.ndarray[char, ndim=1] mask = x > 0
  * 
  *     k_x[mask] = -A * H * (1 - np.exp(-B * x[mask]))             # <<<<<<<<<<<<<<
@@ -5395,7 +5386,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   if (unlikely((PyObject_SetItem(((PyObject *)__pyx_v_k_x), ((PyObject *)__pyx_v_mask), __pyx_t_5) < 0))) __PYX_ERR(1, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "current_density.pyx":23
+  /* "current_density/current_density.pyx":23
  *     k_x[mask] = -A * H * (1 - np.exp(-B * x[mask]))
  * 
  *     return np.stack([k_x, k_y, k_z], axis=-1)             # <<<<<<<<<<<<<<
@@ -5434,7 +5425,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "current_density.pyx":15
+  /* "current_density/current_density.pyx":15
  *     return np.stack([j_x, j_y, j_z], axis=-1)
  * 
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):             # <<<<<<<<<<<<<<
@@ -5460,7 +5451,7 @@ static PyObject *__pyx_pf_15current_density_2compute_surface_current_density(CYT
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_mask.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("current_density.compute_surface_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("current_density.current_density.compute_surface_current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5507,8 +5498,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_compute_spatial_current_density, __pyx_k_compute_spatial_current_density, sizeof(__pyx_k_compute_spatial_current_density), 0, 0, 1, 1},
     {&__pyx_n_s_compute_surface_current_density, __pyx_k_compute_surface_current_density, sizeof(__pyx_k_compute_surface_current_density), 0, 0, 1, 1},
-    {&__pyx_n_s_current_density, __pyx_k_current_density, sizeof(__pyx_k_current_density), 0, 0, 1, 1},
-    {&__pyx_kp_s_current_density_pyx, __pyx_k_current_density_pyx, sizeof(__pyx_k_current_density_pyx), 0, 0, 1, 0},
+    {&__pyx_n_s_current_density_current_density, __pyx_k_current_density_current_density, sizeof(__pyx_k_current_density_current_density), 0, 0, 1, 1},
     {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
     {&__pyx_n_s_exp, __pyx_k_exp, sizeof(__pyx_k_exp), 0, 0, 1, 1},
     {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
@@ -5529,6 +5519,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
     {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
     {&__pyx_n_s_spec, __pyx_k_spec, sizeof(__pyx_k_spec), 0, 0, 1, 1},
+    {&__pyx_kp_s_src_current_density_current_dens, __pyx_k_src_current_density_current_dens, sizeof(__pyx_k_src_current_density_current_dens), 0, 0, 1, 0},
     {&__pyx_n_s_stack, __pyx_k_stack, sizeof(__pyx_k_stack), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
     {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
@@ -5573,8 +5564,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "current_density.pyx":4
- * cimport numpy as np
+  /* "current_density/current_density.pyx":4
+ * import numpy as np
  * 
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
@@ -5583,9 +5574,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__4 = PyTuple_Pack(9, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_H, __pyx_n_s_j_x, __pyx_n_s_j_y, __pyx_n_s_j_z, __pyx_n_s_mask); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(5, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_current_density_pyx, __pyx_n_s_compute_spatial_current_density, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(5, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_current_density_current_dens, __pyx_n_s_compute_spatial_current_density, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(1, 4, __pyx_L1_error)
 
-  /* "current_density.pyx":15
+  /* "current_density/current_density.pyx":15
  *     return np.stack([j_x, j_y, j_z], axis=-1)
  * 
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):             # <<<<<<<<<<<<<<
@@ -5595,7 +5586,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__6 = PyTuple_Pack(8, __pyx_n_s_x, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_H, __pyx_n_s_k_x, __pyx_n_s_k_y, __pyx_n_s_k_z, __pyx_n_s_mask); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_current_density_pyx, __pyx_n_s_compute_surface_current_density, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_current_density_current_dens, __pyx_n_s_compute_surface_current_density, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5993,14 +5984,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_current_density) {
+  if (__pyx_module_is_main_current_density__current_density) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "current_density")) {
-      if (unlikely((PyDict_SetItemString(modules, "current_density", __pyx_m) < 0))) __PYX_ERR(1, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "current_density.current_density")) {
+      if (unlikely((PyDict_SetItemString(modules, "current_density.current_density", __pyx_m) < 0))) __PYX_ERR(1, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -6021,43 +6012,44 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "current_density.pyx":1
- * import numpy as np             # <<<<<<<<<<<<<<
+  /* "current_density/current_density.pyx":2
  * cimport numpy as np
+ * import numpy as np             # <<<<<<<<<<<<<<
  * 
+ * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):
  */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_numpy, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_numpy, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(1, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "current_density.pyx":4
- * cimport numpy as np
+  /* "current_density/current_density.pyx":4
+ * import numpy as np
  * 
  * def compute_spatial_current_density(np.ndarray[double, ndim=2] x, np.ndarray[double, ndim=2] y, double A, double B, double H):             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[double, ndim=2] j_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=2] j_y = np.zeros_like(x, dtype=np.float64)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15current_density_1compute_spatial_current_density, 0, __pyx_n_s_compute_spatial_current_density, NULL, __pyx_n_s_current_density, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15current_density_15current_density_1compute_spatial_current_density, 0, __pyx_n_s_compute_spatial_current_density, NULL, __pyx_n_s_current_density_current_density, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_spatial_current_density, __pyx_t_2) < 0) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "current_density.pyx":15
+  /* "current_density/current_density.pyx":15
  *     return np.stack([j_x, j_y, j_z], axis=-1)
  * 
  * def compute_surface_current_density(np.ndarray[double, ndim=1] x, double A, double B, double H):             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[double, ndim=1] k_x = np.zeros_like(x, dtype=np.float64)
  *     cdef np.ndarray[double, ndim=1] k_y = np.zeros_like(x, dtype=np.float64)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15current_density_3compute_surface_current_density, 0, __pyx_n_s_compute_surface_current_density, NULL, __pyx_n_s_current_density, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15current_density_15current_density_3compute_surface_current_density, 0, __pyx_n_s_compute_surface_current_density, NULL, __pyx_n_s_current_density_current_density, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_surface_current_density, __pyx_t_2) < 0) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "current_density.pyx":1
- * import numpy as np             # <<<<<<<<<<<<<<
- * cimport numpy as np
+  /* "current_density/current_density.pyx":1
+ * cimport numpy as np             # <<<<<<<<<<<<<<
+ * import numpy as np
  * 
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
@@ -6072,7 +6064,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init current_density.current_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -6086,7 +6078,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init current_density");
+    PyErr_SetString(PyExc_ImportError, "init current_density.current_density");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
