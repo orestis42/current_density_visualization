@@ -6,8 +6,13 @@ name = "pypi"
 [packages]
 numpy = "*"
 plotly = "*"
+cython = "*"
+setuptools = "*"
+wheel = "*"
+currentdensityproject = {file = ".", editable = true}
 
 [dev-packages]
+cython = "*"
 
 [requires]
 python_version = "3.12"
