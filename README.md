@@ -29,12 +29,19 @@ cd current_density_visualization
 ```
 
 Install dependencies using pipenv.
+
 ```bash
 pipenv install
+```
+
+Build the Cython extension.
+
+``bash
+pipenv run python setup.py build_ext --inplace
 ```
 
 ## Usage
 
 ```bash
-pipenv run python current_density_visualization.py
+pipenv run visualize
 ```
