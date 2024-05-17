@@ -36,7 +36,7 @@ pipenv install
 
 Build the Cython extension.
 
-``bash
+```bash
 pipenv run python setup.py build_ext --inplace
 ```
 
