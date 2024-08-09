@@ -1,0 +1,15 @@
+{
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          "pythonPath": "/home/orestis/.local/share/virtualenvs/current_density_visualization-_iTqChGD"
+        }
+      }
+    }
+  }
+}
